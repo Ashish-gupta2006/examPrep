@@ -13,7 +13,10 @@ const AdminLogin = () => {
 
   const handelSubmit =async(e)=>{
     e.preventDefault();
-    const res = await axios.post("http://localhost:5000/api/admin/login", form);
+    const res = await axios.post(
+      "https://examprep-ztam.onrender.com/api/admin/login",
+      form
+    );
     console.log(res);
     if (res.data.message == "Admin login Successfully") {
       localStorage.setItem("role", res.data.admin.role);

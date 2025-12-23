@@ -214,8 +214,8 @@ const Examination = () => {
     const fetchData = async () => {
       try {
         const [subjectRes, sessionRes] = await Promise.all([
-          axios.get("http://localhost:5000/api/subject"),
-          axios.get("http://localhost:5000/api/session"),
+          axios.get("https://examprep-ztam.onrender.com/api/subject"),
+          axios.get("https://examprep-ztam.onrender.com/api/session"),
         ]);
         setSubjects(subjectRes.data || []); //subjectRes.data.data
         setSessions(sessionRes.data || []); //sessionRes.data.data
@@ -284,7 +284,10 @@ const Examination = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/exams', formData);
+      await axios.post(
+        "https://examprep-ztam.onrender.com/api/exams",
+        formData
+      );
       alert('Exam Created Successfully');
       // Reset form
       setFormData({

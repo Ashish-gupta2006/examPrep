@@ -25,12 +25,15 @@ const QuestionBank = () => {
       if (editForm) {
         console.log(editForm);
         await axios
-          .put(`http://localhost:5000/api/question/${id}`, formData)
+          .put(
+            `https://examprep-ztam.onrender.com/api/question/${id}`,
+            formData
+          )
           .then((res) => alert(res.data.message))
           .catch((err) => console.err(err));
       } else {
         const res = await axios.post(
-          "http://localhost:5000/api/question",
+          "https://examprep-ztam.onrender.com/api/question",
           formData
         );
         if (res) {
@@ -56,9 +59,13 @@ const QuestionBank = () => {
 
   const handelData = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/question");
+      const res = await axios.get(
+        "https://examprep-ztam.onrender.com/api/question"
+      );
       setQuestions(res.data.data);
-      const res1 = await axios.get("http://localhost:5000/api/subject");
+      const res1 = await axios.get(
+        "https://examprep-ztam.onrender.com/api/subject"
+      );
       setSubjects(res1.data);
     } catch (error) {
       console.log("sorry, try again");
@@ -68,7 +75,7 @@ const QuestionBank = () => {
   const handelDelete = async (id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:5000/api/question/${id}`
+        `https://examprep-ztam.onrender.com/api/question/${id}`
       );
       handelData();
       alert(res.data.message);

@@ -16,7 +16,9 @@ function Registration() {
   const [session, setSession] = useState([]);
   const handelFetch = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/session/");
+      const res = await axios.get(
+        "https://examprep-ztam.onrender.com/api/session/"
+      );
       setSession(res.data);
       // console.log(res.data);
     } catch (error) {
@@ -35,7 +37,7 @@ function Registration() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/examinee",
+        "https://examprep-ztam.onrender.com/api/examinee",
         formData
       );
       alert("examinee registered successfully");

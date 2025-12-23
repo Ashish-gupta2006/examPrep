@@ -16,7 +16,7 @@ const Login = () => {
     e.preventDefault();
     // console.log(data);
     const res = await axios.post(
-      "http://localhost:5000/api/examinee/login",
+      "https://examprep-ztam.onrender.com/api/examinee/login",
       data
     );
     alert(res.data.message);

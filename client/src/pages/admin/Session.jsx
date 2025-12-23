@@ -23,14 +23,20 @@ const Session = () => {
     e.preventDefault();
     try {
       if (editForm) {
-        const res = await axios.put(`http://localhost:5000/api/session/${id}`, form);
+        const res = await axios.put(
+          `https://examprep-ztam.onrender.com/api/session/${id}`,
+          form
+        );
         if (res) {
           setForm({ name: " ", description: " " });
           fetchSessions();
           alert("session updated  successfully");
         }
       } else {
-        const res = await axios.post("http://localhost:5000/api/session", form);
+        const res = await axios.post(
+          "https://examprep-ztam.onrender.com/api/session",
+          form
+        );
         if (res) {
           setForm({ name: " ", description: " " });
           fetchSessions();
@@ -45,7 +51,9 @@ const Session = () => {
   // handel fetch data
   const fetchSessions = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/session/");
+      const res = await axios.get(
+        "https://examprep-ztam.onrender.com/api/session/"
+      );
       setData(res.data);
     } catch (err) {
       console.error("Failed to fetch sessions:", err);
@@ -58,7 +66,9 @@ const Session = () => {
   // handelDelete method.
   const handelDelete = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/api/session/${id}`);
+      const res = await axios.delete(
+        `https://examprep-ztam.onrender.com/api/session/${id}`
+      );
       setData((prev) => prev.filter((item) => item._id != id));
       console.log(res.message);
     } catch (error) {

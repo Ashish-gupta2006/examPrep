@@ -18,7 +18,7 @@ const ChangePassword = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/admin/change",
+        "https://examprep-ztam.onrender.com/api/admin/change",
         data
       );
       alert(res.data.message);

@@ -8,7 +8,7 @@ const Dashboard = () => {
   const[totalSubject, setTotalSubject] = useState(null);
  const fetchTotalExam = () => {
    axios
-     .get("http://localhost:5000/api/exams/exams")
+     .get("https://examprep-ztam.onrender.com/api/exams/exams")
      .then((res) => setTotalExam(res.data.length))
      .catch((err) => {
        console.error("Error fetching total exams:", err);
@@ -18,7 +18,7 @@ const Dashboard = () => {
 
  const fetchTotalExaminee = () => {
    axios
-     .get("http://localhost:5000/api/examinee")
+     .get("https://examprep-ztam.onrender.com/api/examinee")
      .then((res) => setTotalExaminee(res.data.length))
      .catch((err) => {
        console.error("Error fetching total exams:", err);
@@ -28,7 +28,7 @@ const Dashboard = () => {
 
   const fetchTotalSubject = () => {
     axios
-      .get("http://localhost:5000/api/subject")
+      .get("https://examprep-ztam.onrender.com/api/subject")
       .then((res) => setTotalSubject(res.data.length))
       .catch((err) => {
         console.error("Error fetching total exams:", err);

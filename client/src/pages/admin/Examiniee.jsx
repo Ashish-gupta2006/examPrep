@@ -6,14 +6,17 @@ const Examiniee = () => {
   const[data, setData] = useState([]);
   const handelFetch= async()=>{
     try {
-      const res = await axios.get("http://localhost:5000/api/examinee");
+      const res = await axios.get(
+        "https://examprep-ztam.onrender.com/api/examinee"
+      );
       setData(res.data);
     } catch (error) {
       console.error("con't fatch data ",error);
     }
   }
 const handelDelete = async(id) =>{
-await axios.delete(`http://localhost:5000/api/examinee/${id}`)
+await axios
+  .delete(`https://examprep-ztam.onrender.com/api/examinee/${id}`)
   .then((res) => {
     if (res.statusText === "OK") {
       alert(res.data.message);

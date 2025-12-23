@@ -9,7 +9,9 @@ const ReportGeneration = () => {
 
   const handleFetch  = async()=>{
     try {
-      const res = await axios.get("http://localhost:5000/api/exams/report");
+      const res = await axios.get(
+        "https://examprep-ztam.onrender.com/api/exams/report"
+      );
       setData(res.data);
     } catch (error) {
       alert("sorry , fetching report",error);

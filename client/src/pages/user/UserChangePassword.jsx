@@ -17,7 +17,10 @@ const handelChange = (e)=>{
 const handleSubmit = async(e)=>{
   e.preventDefault();
   try {
-    const res = await axios.post("http://localhost:5000/api/examinee/change",data);
+    const res = await axios.post(
+      "https://examprep-ztam.onrender.com/api/examinee/change",
+      data
+    );
     alert(res.data.message);
     if (res.data.message === "password successully update") {
        localStorage.removeItem("userRole");

@@ -11,13 +11,17 @@ const UserProfile = () => {
       const fetchData = ()=>{
         const userId = localStorage.getItem('userId');
       
-          axios.get(`http://localhost:5000/api/examinee/${userId}`)
-          .then(response => {
-            setUser(response.data);
-          })
-          .catch(error => {
-            console.error("There was an error fetching the user data!", error);
-          });
+          axios
+            .get(`https://examprep-ztam.onrender.com/api/examinee/${userId}`)
+            .then((response) => {
+              setUser(response.data);
+            })
+            .catch((error) => {
+              console.error(
+                "There was an error fetching the user data!",
+                error
+              );
+            });
       }
   // Fetch user data when the component mounts
       useEffect(() => {

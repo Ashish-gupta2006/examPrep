@@ -19,7 +19,7 @@ const handelSubmit = async(e) =>{
    try {
      if (editForm) {
        const res = await axios.put(
-         `http://localhost:5000/api/subject/${id}`,
+         `https://examprep-ztam.onrender.com/api/subject/${id}`,
          form
        );
        if (res) {
@@ -28,7 +28,10 @@ const handelSubmit = async(e) =>{
          alert(res.data.message);
        }
      } else {
-       const res = await axios.post("http://localhost:5000/api/subject",form);
+       const res = await axios.post(
+         "https://examprep-ztam.onrender.com/api/subject",
+         form
+       );
       if(res.statusText === "OK"){
       setForm({name:'', description:''});
       fetchData();
@@ -55,7 +58,9 @@ const handelSubmit = async(e) =>{
 const[subjectData, setSubjectData] = useState([]);
 const fetchData = async()=>{
   try {
-    const res = await axios.get("http://localhost:5000/api/subject");
+    const res = await axios.get(
+      "https://examprep-ztam.onrender.com/api/subject"
+    );
     setSubjectData(res.data);
   } catch (error) {
     console.log("data not fund");
@@ -71,7 +76,9 @@ useEffect(()=>{
 // handel delete 
 const handelDelete = async(id)=>{
   try {
-    const res =await axios.delete(`http://localhost:5000/api/subject/${id}`);
+    const res = await axios.delete(
+      `https://examprep-ztam.onrender.com/api/subject/${id}`
+    );
     if(res.statusText === "OK"){
       // setSubjectData((prev)=> prev.filter((item)=>item._id != id));
       fetchData();

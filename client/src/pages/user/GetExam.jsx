@@ -16,7 +16,7 @@ const GetExam = () => {
     const fetchExam = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/exams/exam/${examId}`
+          `https://examprep-ztam.onrender.com/api/exams/exam/${examId}`
         );
         const { exam: examData, questions: questionData } = res.data;
         setExam(examData);
@@ -63,7 +63,7 @@ const GetExam = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/exams/submit-exam",
+        "https://examprep-ztam.onrender.com/api/exams/submit-exam",
         {
           examId,
           answers,

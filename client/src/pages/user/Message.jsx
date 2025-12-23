@@ -18,7 +18,10 @@ const Message = () => {
   const handleSubmit = async(e)=>{
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/message', formData);
+      const response = await axios.post(
+        "https://examprep-ztam.onrender.com/api/message",
+        formData
+      );
       alert(response.data.message);
       setFormData({question:'', email:formData.email});
       fetchMessage();
@@ -32,7 +35,9 @@ const Message = () => {
   const fetchMessage = async()=>{
     try {
       const userId = localStorage.getItem('userId');
-      const response = await axios.get(`http://localhost:5000/api/message/${userId}`);
+      const response = await axios.get(
+        `https://examprep-ztam.onrender.com/api/message/${userId}`
+      );
       setMessage(response.data.message);
       
     } catch (error) {

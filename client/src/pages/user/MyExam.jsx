@@ -4,7 +4,9 @@ import { Link } from "react-router";
 const MyExam = () => {
   const [eaxm, setExam] = useState([]);
   const fetchExams = async () => {
-    const res = await axios.get("http://localhost:5000/api/exams/exams");
+    const res = await axios.get(
+      "https://examprep-ztam.onrender.com/api/exams/exams"
+    );
     setExam(res.data);
   };
 
